@@ -6,6 +6,10 @@ import MicIcon from '@mui/icons-material/Mic';
 import SearchIcon from '@mui/icons-material/Search';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import {Account} from "../services/auth.service.ts";
+import {useEffect, useState} from "react";
+import {AuthStorageService} from "../services/auth-storage.service.ts";
+import {useNavigate} from "react-router-dom";
 
 const Logo = () => (
     <svg width="133" height="94" viewBox="0 0 133 94" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,10 +36,15 @@ const TwoButtonsHeaderWrapper = styled.div`
   gap: 1rem;
 `
 
-
 function Header() {
-    return (
+    const [account, setAccount] = useState<Account | undefined>();
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        setAccount(AuthStorageService.getAccount())
+    }, []);
+
+    return (
         <HeaderWrapper>
             <Logo></Logo>
             <TextField sx={{width: '55rem'}} id="filled-basic" label="Например: “Процессор Intel”" variant="filled"
@@ -49,7 +58,22 @@ function Header() {
                         <MicIcon/>
                     </InputAdornment>)
             }}/>
-            <Button variant="outlined" size="large">Вход</Button>
+            {
+                account ?
+                    <div>
+                        <div>Вы вошли как: {account.email}</div>
+                        <Button variant="outlined" size="large" onClick={() => {
+                            AuthStorageService.clear();
+                            setAccount(undefined);
+                        }}>Выход</Button>
+                    </div>
+                    :
+                    <Button variant="outlined" size="large"
+                            onClick={() => {
+                                navigate('/login');
+                            }}
+                    >Вход</Button>
+            }
             <TwoButtonsHeaderWrapper>
                 <Button variant="outlined" size="large" endIcon={<BarChartIcon/>}>Сравнение товаров</Button>
                 <Button variant="outlined" size="large" endIcon={<LocalGroceryStoreOutlinedIcon/>}>Корзина</Button>
