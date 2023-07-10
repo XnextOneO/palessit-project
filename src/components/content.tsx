@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Route, Routes } from "react-router-dom";
-import Catalog from "../pages/catalog.tsx";
+
 
 const ContentWrapper = styled.div`
   width: 92rem;
@@ -9,9 +8,7 @@ const ContentWrapper = styled.div`
 function Content() {
     return (
         <ContentWrapper>
-            <Routes>
-                <Route path="/catalog" element={<Catalog />} />
-            </Routes>
+
         </ContentWrapper>
     );
 }

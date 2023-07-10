@@ -21,6 +21,14 @@ const HeaderWrapper = styled.div`
   align-items: center;
   background: #EEEEEE`
 
+const ChildHeaderWrapper = styled.div`
+  width: 111rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`
+
 const TwoButtonsHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -44,38 +52,38 @@ function Header() {
 
     return (
         <HeaderWrapper>
-            <Logo/>
-            <TextField sx={{width: '55rem'}} id="filled-basic" label="Например: “Процессор Intel”" variant="filled"
-                       size="small" InputProps={{
-                startAdornment: (
-                    <InputAdornment position="start">
-                        <SearchIcon></SearchIcon>
-                    </InputAdornment>
-                ), endAdornment: (
-                    <InputAdornment position="end">
-                        <MicIcon/>
-                    </InputAdornment>)
-            }}/>
-            {
-                query.data ?
-                    <div>
-                        <div>Вы вошли как: {query.data.email}</div>
-                        <Button variant="outlined" size="large" onClick={async () => {
-                            AuthStorageService.clear();
-                            await query.refetch();
-                        }}>Выход</Button>
-                    </div>
-                    :
-                    <Button variant="outlined" size="large"
-                            onClick={() => {
-                                navigate('/login');
-                            }}
-                    >Вход</Button>
-            }
-            <TwoButtonsHeaderWrapper>
-                <Button variant="outlined" size="large" endIcon={<BarChartIcon/>}>Сравнение товаров</Button>
-                <Button variant="outlined" size="large" endIcon={<LocalGroceryStoreOutlinedIcon/>}>Корзина</Button>
-            </TwoButtonsHeaderWrapper>
+            <ChildHeaderWrapper><a href="/"><Logo/></a>
+                <TextField sx={{width: '30rem'}} id="filled-basic" label="Например: “Процессор Intel”" variant="filled"
+                           size="small" InputProps={{
+                    startAdornment: (
+                        <InputAdornment position="start">
+                            <SearchIcon></SearchIcon>
+                        </InputAdornment>
+                    ), endAdornment: (
+                        <InputAdornment position="end">
+                            <MicIcon/>
+                        </InputAdornment>)
+                }}/>
+                {
+                    query.data ?
+                        <div>
+                            <div>Вы вошли как: {query.data.email}</div>
+                            <Button variant="outlined" size="small" onClick={async () => {
+                                AuthStorageService.clear();
+                                await query.refetch();
+                            }}>Выход</Button>
+                        </div>
+                        :
+                        <Button variant="outlined" size="large"
+                                onClick={() => {
+                                    navigate('/login');
+                                }}
+                        >Вход</Button>
+                }
+                <TwoButtonsHeaderWrapper>
+                    <Button variant="outlined" size="small" endIcon={<BarChartIcon/>}>Сравнение товаров</Button>
+                    <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon/>}>Корзина</Button>
+                </TwoButtonsHeaderWrapper></ChildHeaderWrapper>
         </HeaderWrapper>
 
     )
