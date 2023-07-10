@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
+import {useNavigate} from "react-router-dom";
 
 const SpotlightWrap = styled.div`
   background: url(${getRandomBackgroundImage()}) no-repeat center center;
@@ -105,6 +106,7 @@ function getRandomBackgroundImage() {
 }
 
 function SpotlightComponent() {
+    const navigate = useNavigate();
     const onMouseMove = useCallback((event: React.MouseEvent) => {
         const spotlight = document.querySelector('.spotlight') as HTMLElement;
         if (spotlight && spotlight.offsetWidth) {
@@ -141,7 +143,8 @@ function SpotlightComponent() {
                 <SpotlightDescripion>
                     Hmm, the page you were looking for doesn’t seem to exist anymore
                 </SpotlightDescripion>
-                <ButtonErrorLink>Back to mainpage</ButtonErrorLink>
+                <ButtonErrorLink  onClick={() => {
+                    navigate('/');}}>Back to mainpage</ButtonErrorLink>
             </ContentWrap>
             <Spotlight className="spotlight" />
         </SpotlightWrap>

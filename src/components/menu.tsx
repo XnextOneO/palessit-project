@@ -8,48 +8,70 @@ import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
+import {useNavigate} from "react-router-dom";
 
 const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: flex-start;
-  width: 20%;
+  width: 10.3rem;
+  align-items: center;
+`
+const CustomTypography = styled(Typography)`
+  display: inline;
+`;
+const CustomIconButton = styled(IconButton)`
+  display: flex;
+  flex-direction: column;
 `
 
 
 function Menu() {
+    const navigate = useNavigate();
     return (
-
         <MenuWrapper>
-            <IconButton color="primary">
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/');
+            }}>
                 <HomeOutlinedIcon/>
-                <Typography variant="body1" align="center">Главная</Typography>
-            </IconButton>
-            <IconButton color="primary">
+                <CustomTypography variant="body1" align="center">Главная</CustomTypography>
+            </CustomIconButton>
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/none');
+            }}>
                 <ThumbUpOutlinedIcon/>
-                <Typography variant="body1" align="center">Популярное</Typography>
-            </IconButton>
-            <IconButton color="primary">
+                <CustomTypography variant="body1" align="center">Популярное</CustomTypography>
+            </CustomIconButton>
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/none');
+            }}>
                 <ShoppingCartOutlinedIcon/>
-                <Typography variant="body1" align="center">Акции</Typography>
-            </IconButton>
-            <IconButton color="primary">
+                <CustomTypography variant="body1" align="center">Акции</CustomTypography>
+            </CustomIconButton>
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/none');
+            }}>
                 <PercentOutlinedIcon/>
-                <Typography variant="body1" align="center">Калькулятор ПК</Typography>
-            </IconButton>
-            <IconButton color="primary">
+                <CustomTypography variant="body1" align="center">Калькулятор <br/>ПК</CustomTypography>
+            </CustomIconButton>
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/none');
+            }}>
                 <CalculateOutlinedIcon/>
-                <Typography variant="body1" align="center">Корзина</Typography>
-            </IconButton>
-            <IconButton color="primary">
+                <CustomTypography variant="body1" align="center">Корзина</CustomTypography>
+            </CustomIconButton>
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/none');
+            }}>
                 <AccountCircleOutlinedIcon/>
-                <Typography variant="body1" align="center">Личный кабинет</Typography>
-            </IconButton>
-            <IconButton color="primary">
+                <CustomTypography variant="body1" align="center">Личный <br/>кабинет</CustomTypography>
+            </CustomIconButton>
+            <CustomIconButton color="primary" onClick={() => {
+                navigate('/catalog');
+            }}>
                 <FolderOutlinedIcon/>
-                <Typography variant="body1" align="center">Категории</Typography>
-            </IconButton>
+                <CustomTypography variant="body1" align="center">Категории</CustomTypography>
+            </CustomIconButton>
         </MenuWrapper>
 
 

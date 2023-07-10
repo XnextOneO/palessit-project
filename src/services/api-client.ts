@@ -9,7 +9,7 @@ export interface AuthResponse {
     account: Account;
 }
 
-export class AuthService {
+export class ApiClient {
     static async whoAmI(token: string): Promise<Account> {
         const response = await fetch(`https://63025c76c6dda4f287b8755e.mockapi.io/api/user/1`, {
             headers: {
