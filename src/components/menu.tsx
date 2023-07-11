@@ -16,6 +16,7 @@ const MenuWrapper = styled.div`
   gap: 2rem;
   width: 10.3rem;
   align-items: center;
+  
 `
 const CustomTypography = styled(Typography)`
   display: inline;

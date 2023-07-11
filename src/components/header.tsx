@@ -19,7 +19,7 @@ const HeaderWrapper = styled.div`
   height: 6rem;
   justify-content: space-around;
   align-items: center;
-  background: #EEEEEE`
+  background: #EEEEEE;`
 
 const ChildHeaderWrapper = styled.div`
   width: 111rem;

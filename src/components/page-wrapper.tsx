@@ -8,17 +8,19 @@ const MenuContentWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-height: 100%;
+  flex-grow: 1;
 `
 
 const ChildMenuContentWrapper = styled.div`
-  width: 1920px;
+  width: 120rem;
   display: flex;
-  flex-direction: row`
+  flex-direction: row;`
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-left: 20rem;
+  margin-left: 8.8rem;
 `
 
 

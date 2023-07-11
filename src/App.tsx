@@ -5,9 +5,11 @@ import {Route, Routes} from "react-router-dom";
 import Catalog from "./pages/catalog.tsx";
 import Login from "./pages/login.tsx";
 import SpotlightComponent from "./pages/404.tsx";
+import {Popular} from "./pages/popular.tsx";
+import ProductPage from "./components/product.tsx";
+
 
 const queryClient = new QueryClient();
-
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
         <QueryClientProvider client={queryClient}>
             <Routes>
                 <Route path="/" element={<PageWrapper header footer menu>
-                    hello
+                    <Popular/>
                 </PageWrapper>}/>
                 <Route path="/catalog" element={<PageWrapper header footer menu>
                     <Catalog/>
@@ -30,6 +32,9 @@ function App() {
                         <SpotlightComponent/>
                     </PageWrapper>
                 }/>
+                <Route path="/product/:id" element={<PageWrapper header footer menu>
+                    <ProductPage/>
+                </PageWrapper>}/>
 
             </Routes>
         </QueryClientProvider>
