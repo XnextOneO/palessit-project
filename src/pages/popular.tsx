@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
-import ProductsPage from "../components/card.tsx";
 import styled from "styled-components";
+import ProductsPage from "../components/card.tsx";
 
 
 const PopularWrapper = styled.div`
@@ -15,6 +15,7 @@ export function Popular() {
                 Популярное
             </Typography>
             <ProductsPage/>
+
         </PopularWrapper>
     )
 }

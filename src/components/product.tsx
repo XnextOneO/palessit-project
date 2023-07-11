@@ -1,63 +1,72 @@
+import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
-import { products, Product } from './card.tsx';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {Product, products} from './card.tsx';
+import {useEffect, useState} from "react";
 
-const ProductContainer = styled.div`
+
+const ProductDetailsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 `;
 
-const ProductCard = styled.div`
-  width: 30rem;
-  height: 35rem;
+const ProductDetailsCard = styled.div`
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  height: 500px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 `;
 
-const ProductImage = styled.img`
-  width: 100%;
-  height: 20rem;
+const ProductDetailsImage = styled.img`
+  width: 50%;
+  height: 100%;
   object-fit: cover;
 `;
 
-const ProductInfo = styled.div`
+const ProductDetailsInfo = styled.div`
+  width: 50%;
   padding: 2rem;
 `;
 
-const ProductName = styled.h3`
+const ProductDetailsName = styled.h2`
   margin-top: 0;
 `;
 
-const ProductPrice = styled.p`
-  margin-bottom: 0;
+const ProductDetailsPrice = styled.p`
+  font-size: 2rem;
+  margin-bottom: 2rem;
 `;
 
-function ProductPage() {
-    const { id } = useParams<{ id: string }>();
+
+function ProductDetailsPage() {
+    const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | undefined>(undefined);
 
     useEffect(() => {
-        const newProduct = products.find((p) => p.id === Number(id));
-        setProduct(newProduct);
+        if (id) {
+            const productId = parseInt(id);
+            const foundProduct = products.find((p) => p.id === productId);
+            setProduct(foundProduct);
+        }
     }, [id]);
 
     if (!product) {
-        return <div>Product not found.</div>;
+        return <div>Loading...</div>;
     }
 
     return (
-        <ProductContainer>
-            <ProductCard>
-                <ProductImage src={product.image} alt={product.name} />
-                <ProductInfo>
-                    <ProductName>{product.name}</ProductName>
-                    <ProductPrice>{product.price}</ProductPrice>
-                </ProductInfo>
-            </ProductCard>
-        </ProductContainer>
+        <ProductDetailsContainer>
+            <ProductDetailsCard>
+                <ProductDetailsImage src={product.image} alt={product.name}/>
+                <ProductDetailsInfo>
+                    <ProductDetailsName>{product.name}</ProductDetailsName>
+                    <ProductDetailsPrice>${product.price}</ProductDetailsPrice>
+                </ProductDetailsInfo>
+            </ProductDetailsCard>
+        </ProductDetailsContainer>
     );
 }
 
-export default ProductPage;
+export default ProductDetailsPage;
