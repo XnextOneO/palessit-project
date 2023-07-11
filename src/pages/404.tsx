@@ -98,7 +98,7 @@ const BlinkingO = styled.span`
 function getRandomBackgroundImage() {
     const images = [
         'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg',
-        'https://img.freepik.com/free-vector/cartoon-galaxy-background-with-planets_23-2148966504.jpg?w=1380&t=st=1683232024~exp=1683232624~hmac=45a627a18a93b40901bc9290ac7d517940b212715711e83ac299243340fddf9f',
+        'https://lifehacker.ru/wp-content/uploads/2013/05/50800-2560x1600.jpg'
     ];
 
     const randomIndex = Math.floor(Math.random() * images.length);
