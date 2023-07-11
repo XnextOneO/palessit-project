@@ -7,6 +7,7 @@ import Login from "./pages/login.tsx";
 import SpotlightComponent from "./pages/404.tsx";
 import {Popular} from "./pages/popular.tsx";
 import ProductPage from "./components/product.tsx";
+import Userpage from "./pages/userpage.tsx";
 
 
 const queryClient = new QueryClient();
@@ -35,7 +36,9 @@ function App() {
                 <Route path="/product/:id" element={<PageWrapper header footer menu>
                     <ProductPage/>
                 </PageWrapper>}/>
-
+                <Route path="/user" element={<PageWrapper header footer menu>
+                    <Userpage/>
+                </PageWrapper>}/>
             </Routes>
         </QueryClientProvider>
     );

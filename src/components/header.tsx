@@ -37,7 +37,7 @@ const TwoButtonsHeaderWrapper = styled.div`
 
 function Header() {
     const navigate = useNavigate();
-    const query = useQuery(
+     const query = useQuery(
         'whoAmI',
         async () => {
             const token = AuthStorageService.getToken();
@@ -65,7 +65,7 @@ function Header() {
                         </InputAdornment>)
                 }}/>
                 {
-                    query.data ?
+                     query.data ?
                         <div>
                             <div>Вы вошли как: {query.data.email}</div>
                             <Button variant="outlined" size="small" onClick={async () => {

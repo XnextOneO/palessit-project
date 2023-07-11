@@ -62,7 +62,7 @@ function Menu() {
                 <CustomTypography variant="body1" align="center">Корзина</CustomTypography>
             </CustomIconButton>
             <CustomIconButton color="primary" onClick={() => {
-                navigate('/none');
+                navigate('/user');
             }}>
                 <AccountCircleOutlinedIcon/>
                 <CustomTypography variant="body1" align="center">Личный <br/>кабинет</CustomTypography>
