@@ -2,7 +2,6 @@ import {IconButton} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
@@ -16,7 +15,7 @@ const MenuWrapper = styled.div`
   gap: 2rem;
   width: 10.3rem;
   align-items: center;
-  
+  margin-right: 8.8rem;
 `
 const CustomTypography = styled(Typography)`
   display: inline;
@@ -36,12 +35,6 @@ function Menu() {
             }}>
                 <HomeOutlinedIcon/>
                 <CustomTypography variant="body1" align="center">Главная</CustomTypography>
-            </CustomIconButton>
-            <CustomIconButton color="primary" onClick={() => {
-                navigate('/none');
-            }}>
-                <ThumbUpOutlinedIcon/>
-                <CustomTypography variant="body1" align="center">Популярное</CustomTypography>
             </CustomIconButton>
             <CustomIconButton color="primary" onClick={() => {
                 navigate('/none');

@@ -1,19 +1,25 @@
-import { useEffect, useState } from 'react';
-import { AuthStorageService } from '../services/auth-storage.service.ts';
-
-
+import {useEffect, useState} from 'react';
 
 function Userpage() {
-    const [token, setToken] = useState(null);
+    const [name, setName] = useState(null);
+    const [email, setEmail] = useState(null);
 
     useEffect(() => {
-        const storedToken = AuthStorageService.getToken();
-        setToken(storedToken);
+
+        fetch('https://63025c76c6dda4f287b8755e.mockapi.io/api/user/1')
+            .then(response => response.json())
+            .then(data => {
+                setName(data.name);
+                setEmail(data.email);
+            })
+            .catch(error => console.error(error));
     }, []);
 
     return (
         <div>
-            Token: {token}
+            Name: {name}
+            <br/>
+            Email: {email}
         </div>
     );
 }

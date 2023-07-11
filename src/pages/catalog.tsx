@@ -1,6 +1,9 @@
+import Typography from "@mui/material/Typography";
 
 export default function Catalog() {
     return(
-        <div>katalog</div>
+        <Typography variant="h3" gutterBottom>
+            Каталог
+        </Typography>
     )
 }
