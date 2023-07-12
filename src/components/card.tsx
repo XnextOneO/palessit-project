@@ -63,8 +63,8 @@ const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding: 2rem;
   gap: 1rem;
+  width: 90rem;
 `;
 
 const ProductCard = styled(Link)`

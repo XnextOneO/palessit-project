@@ -10,6 +10,7 @@ const MenuContentWrapper = styled.div`
   height: 100vh;
   flex-grow: 1;
   margin-top: 3rem;
+ 
 `
 
 const ChildMenuContentWrapper = styled.div`
@@ -20,6 +21,7 @@ const ChildMenuContentWrapper = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  
 `
 
 
