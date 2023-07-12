@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -7,57 +8,6 @@ export interface Product {
     price: number;
     image: string;
 }
-
-export const products: Product[] = [
-    {
-        id: 1,
-        name: 'Product 1',
-        price: 9.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 2,
-        name: 'Product 2',
-        price: 19.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 3,
-        name: 'Product 3',
-        price: 29.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 4,
-        name: 'Product 4',
-        price: 29.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 5,
-        name: 'Product 5',
-        price: 29.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 6,
-        name: 'Product 6',
-        price: 29.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 7,
-        name: 'Product 7',
-        price: 29.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-    {
-        id: 8,
-        name: 'Product 8',
-        price: 29.99,
-        image: `/src/assets/VideoCard.jpg`,
-    },
-];
 
 const ProductsContainer = styled.div`
   display: flex;
@@ -100,8 +50,6 @@ const ProductPrice = styled.p`
   margin-bottom: 0;
 `;
 
-
-
 function ProductCardComponent({ product }: { product: Product }): JSX.Element {
     return (
         <ProductCard to={`/product/${product.id}`}>
@@ -115,6 +63,15 @@ function ProductCardComponent({ product }: { product: Product }): JSX.Element {
 }
 
 function ProductsPage() {
+    const [products, setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        fetch('https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products')
+            .then((response) => response.json())
+            .then((data) => setProducts(data))
+            .catch((error) => console.log(error));
+    }, []);
+
     return (
         <ProductsContainer>
             {products.map((product) => (
