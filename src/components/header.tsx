@@ -15,11 +15,11 @@ import {useQuery} from "react-query";
 
 const HeaderWrapper = styled.div`
   display: flex;
-  flex-shrink: 0;
   height: 6rem;
   justify-content: space-around;
   align-items: center;
-  background: #EEEEEE;`
+  background: #EEEEEE;
+  flex: 0 0 auto;`
 
 const ChildHeaderWrapper = styled.div`
   width: 111rem;

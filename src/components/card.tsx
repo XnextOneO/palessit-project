@@ -14,11 +14,11 @@ const ProductsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
-  width: 90rem;
+  width: 80rem;
 `;
 
 const ProductCard = styled(Link)`
-  width: 21.5rem;
+  
   height: 25rem;
   margin-bottom: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);

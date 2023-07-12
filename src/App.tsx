@@ -8,14 +8,16 @@ import SpotlightComponent from "./pages/404.tsx";
 import {Popular} from "./pages/popular.tsx";
 import Userpage from "./pages/userpage.tsx";
 import ProductDetailsPage from "./components/product.tsx";
+import styled from "styled-components";
 
 
 const queryClient = new QueryClient();
-
+const MainWrapper = styled.div`
+  height: 100vh;`
 
 function App() {
     return (
-        <QueryClientProvider client={queryClient}>
+        <MainWrapper><QueryClientProvider client={queryClient}>
             <Routes>
                 <Route path="/" element={<PageWrapper header footer menu>
                     <Popular/>
@@ -40,7 +42,7 @@ function App() {
                     <Userpage/>
                 </PageWrapper>}/>
             </Routes>
-        </QueryClientProvider>
+        </QueryClientProvider></MainWrapper>
     );
 }
 

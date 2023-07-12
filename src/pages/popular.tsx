@@ -15,7 +15,6 @@ export function Popular() {
                 Популярное
             </Typography>
             <ProductsPage/>
-
         </PopularWrapper>
     )
 }

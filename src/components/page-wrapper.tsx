@@ -7,10 +7,8 @@ const MenuContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 100vh;
-  flex-grow: 1;
-  margin-top: 3rem;
- 
+  flex: 1 0 auto;
+  overflow-x: hidden;
 `
 
 const ChildMenuContentWrapper = styled.div`
@@ -21,7 +19,7 @@ const ChildMenuContentWrapper = styled.div`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  
+  width: 5rem;
 `
 
 
