@@ -19,7 +19,17 @@ const HeaderWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   background: #EEEEEE;
-  flex: 0 0 auto;`
+  flex: 0 0 auto;
+  width: 100%;
+
+
+  @media (max-width: 1024px) {
+
+    height: 14rem;
+  }
+
+  
+`
 
 const ChildHeaderWrapper = styled.div`
   width: 111rem;
@@ -27,13 +37,31 @@ const ChildHeaderWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    
+  }
 `
 
 const TwoButtonsHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    display: none;
+  }
 `
+
+const LoginLogoutWrapper = styled.div`
+margin: 0.5rem`
+
+
+
+
+
 
 function Header() {
     const navigate = useNavigate();
@@ -53,7 +81,7 @@ function Header() {
     return (
         <HeaderWrapper>
             <ChildHeaderWrapper><a href="/"><Logo/></a>
-                <TextField sx={{width: '30rem'}} id="filled-basic" label="Например: “Процессор Intel”" variant="filled"
+                <TextField sx={{width: '16rem'}} id="filled-basic" label="Например: “Процессор Intel”" variant="filled"
                            size="small" InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">
@@ -66,13 +94,14 @@ function Header() {
                 }}/>
                 {
                      query.data ?
-                        <div>
-                            <div>Вы вошли как: {query.data.email}</div>
-                            <Button variant="outlined" size="small" onClick={async () => {
-                                AuthStorageService.clear();
-                                await query.refetch();
-                            }}>Выход</Button>
-                        </div>
+
+                         <LoginLogoutWrapper>
+                             <div>Вы вошли как: {query.data.email}</div>
+                             <Button variant="outlined" size="small" onClick={async () => {
+                                 AuthStorageService.clear();
+                                 await query.refetch();
+                             }}>Выход</Button></LoginLogoutWrapper>
+
                         :
                         <Button variant="outlined" size="large"
                                 onClick={() => {

@@ -8,6 +8,14 @@ const FooterWrapper = styled.div`
   margin: 5rem auto 0;
   justify-content: space-around;
   flex: 0 0 auto;
+
+
+  @media(max-width:1024px ) {
+   flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+  }
 `
 
 
@@ -18,9 +26,16 @@ const CustomNavLink = styled(NavLink)`
 
 const NavWrapper = styled.div`
 display: flex;
-flex-direction: row;
 justify-content: space-around;
-gap: 1rem`
+gap: 1rem;
+  
+  @media(max-width:1024px ) {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 1rem;
+  }
+
+`
 
 function Footer() {
     return (

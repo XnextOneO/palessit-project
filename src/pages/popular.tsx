@@ -5,13 +5,15 @@ import ProductsPage from "../components/card.tsx";
 
 const PopularWrapper = styled.div`
 display: flex;
-flex-direction: column`
+flex-direction: column;
+  
+`
 
 
 export function Popular() {
     return (
         <PopularWrapper>
-            <Typography variant="h3" gutterBottom>
+            <Typography variant="h5" gutterBottom color="blue">
                 Популярное
             </Typography>
             <ProductsPage/>

@@ -14,7 +14,22 @@ const ProductsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 1rem;
-  width: 80rem;
+  width: 83rem;
+ 
+
+
+  @media(max-width:1920px ) {
+    width: 82rem;
+  }
+
+  @media(max-width:1301px ) {
+    width: 60rem;
+  }
+
+  @media(max-width:817px ) {
+    width: 30rem;
+  }
+  
 `;
 
 const ProductCard = styled(Link)`
@@ -25,17 +40,22 @@ const ProductCard = styled(Link)`
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  border-radius: 12px;
 
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
   }
+
+
+ 
 `;
 
 const ProductImage = styled.img`
   width: 100%;
   height: 15rem;
   object-fit: cover;
+  
 `;
 
 const ProductInfo = styled.div`

@@ -16,6 +16,11 @@ const MenuWrapper = styled.div`
   width: 10.3rem;
   align-items: center;
   margin-right: 8.8rem;
+  
+  
+  @media(max-width: 1024px) {
+    margin-right: 0;
+  }
 `
 const CustomTypography = styled(Typography)`
   display: inline;

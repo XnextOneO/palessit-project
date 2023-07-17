@@ -9,6 +9,7 @@ const MenuContentWrapper = styled.div`
   justify-content: center;
   flex: 1 0 auto;
   overflow-x: hidden;
+  padding-top: 2rem;
 `
 
 const ChildMenuContentWrapper = styled.div`
@@ -44,3 +45,4 @@ export function PageWrapper(props: {
         </>
     )
 }
+
