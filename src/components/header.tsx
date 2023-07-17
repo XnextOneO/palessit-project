@@ -103,7 +103,7 @@ function Header() {
                              }}>Выход</Button></LoginLogoutWrapper>
 
                         :
-                        <Button variant="outlined" size="large"
+                        <Button variant="outlined" size="small" style={{margin: '1rem'}}
                                 onClick={() => {
                                     navigate('/login');
                                 }}
