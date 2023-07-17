@@ -19,7 +19,7 @@ const MenuWrapper = styled.div`
   
   
   @media(max-width: 1024px) {
-    margin-right: 0;
+    margin-right: 1rem;
   }
 
   @media(max-width: 478px) {
