@@ -16,14 +16,20 @@ const ProductDetailsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 100%;
+  width: 90.7rem;
+
+  
+
 `;
 
 const ProductDetailsCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90rem;
-  height: 67rem;
+  
+  
+
+
+ 
 `;
 
 const ProductPriceButton = styled.div`
@@ -37,17 +43,37 @@ const ImgAndOther = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 6rem;
+
+  @media(max-width: 1024px){
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const ProductDetailsImage = styled.img`
-  width: 51rem;
-  height: 36rem;
   object-fit: cover;
+  
+  
+  @media(max-width: 808px){
+    width: 20rem;
+  }
+
+  @media(max-width: 402px){
+    width: 10rem;
+  }
 `;
 
 const ProductDetailsName = styled.h2`
   margin-top: 0;
-  font-size: 6rem;
+  font-size: 4rem;
+
+  @media(max-width: 808px){
+    font-size: 2rem;
+  }
+
+  @media(max-width: 402px){
+    font-size: 1rem;
+  }
 `;
 
 const ProductDetailsPrice = styled.p`

@@ -73,6 +73,7 @@ function Userpage() {
                             multiline
                             rows={5}
                             variant="outlined"
+                            sx={{width: '16.6rem'}}
                         />
 
                     </DeliverAddressWrapper>
