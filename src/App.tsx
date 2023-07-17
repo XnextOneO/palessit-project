@@ -12,7 +12,8 @@ import styled from "styled-components";
 
 const queryClient = new QueryClient();
 const MainWrapper = styled.div`
-  height: 100vh;`
+  height: 100vh;
+  margin:0px auto!important;padding:0px!important;`
 
 function App() {
     return (

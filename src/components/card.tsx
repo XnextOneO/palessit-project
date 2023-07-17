@@ -29,6 +29,11 @@ const ProductsContainer = styled.div`
   @media(max-width:817px ) {
     width: 30rem;
   }
+
+  @media(max-width: 478px) {
+
+    width: 13rem;
+  }
   
 `;
 
@@ -47,15 +52,16 @@ const ProductCard = styled(Link)`
     box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
   }
 
-
- 
+  
 `;
 
 const ProductImage = styled.img`
   width: 100%;
   height: 15rem;
   object-fit: cover;
-  
+
+
+ 
 `;
 
 const ProductInfo = styled.div`
