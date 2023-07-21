@@ -13,26 +13,6 @@ import {AuthStorageService} from "../services/auth-storage.service.ts";
 import {useNavigate} from 'react-router-dom';
 import {useMutation} from "react-query";
 
-const PageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const SignUpWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  align-items: center;
-  gap: 1rem;
-`;
-
-const LinkBottomWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`;
 
 const MIN_PASSWORD_LENGTH = 6;
 
@@ -133,3 +113,24 @@ export default function Login() {
         </PageWrapper>
     );
 }
+
+const PageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SignUpWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const LinkBottomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;

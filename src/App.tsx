@@ -1,5 +1,4 @@
 import {QueryClient, QueryClientProvider} from "react-query";
-
 import {PageWrapper} from "./components/page-wrapper.tsx";
 import {Route, Routes} from "react-router-dom";
 import Login from "./pages/login.tsx";
@@ -10,12 +9,7 @@ import ProductDetailsPage from "./components/product.tsx";
 import styled from "styled-components";
 
 
-const queryClient = new QueryClient();
-const MainWrapper = styled.div`
-  height: 100vh;
-  margin:0px auto!important;padding:0px!important;`
-
-function App() {
+export default function App() {
     return (
         <MainWrapper><QueryClientProvider client={queryClient}>
             <Routes>
@@ -43,4 +37,9 @@ function App() {
     );
 }
 
-export default App;
+
+
+const queryClient = new QueryClient();
+const MainWrapper = styled.div`
+  height: 100vh;
+  margin:0px auto!important;padding:0px!important;`

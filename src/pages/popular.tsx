@@ -3,13 +3,6 @@ import styled from "styled-components";
 import ProductsPage from "../components/card.tsx";
 
 
-const PopularWrapper = styled.div`
-display: flex;
-flex-direction: column;
-  
-`
-
-
 export function Popular() {
     return (
         <PopularWrapper>
@@ -20,3 +13,10 @@ export function Popular() {
         </PopularWrapper>
     )
 }
+
+
+const PopularWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+`

@@ -12,60 +12,9 @@ import {useNavigate} from "react-router-dom";
 import {Logo} from "./logo.tsx"
 import {useQuery} from "react-query";
 
-
-const HeaderWrapper = styled.div`
-  display: flex;
-  height: 6rem;
-  justify-content: space-around;
-  align-items: center;
-  background: #EEEEEE;
-  flex: 0 0 auto;
-  width: 100%;
-
-
-  @media (max-width: 1024px) {
-
-    height: 14rem;
-  }
-
-  
-`
-
-const ChildHeaderWrapper = styled.div`
-  width: 111rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    
-  }
-`
-
-const TwoButtonsHeaderWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    display: none;
-  }
-`
-
-const LoginLogoutWrapper = styled.div`
-margin: 0.5rem`
-
-
-
-
-
-
-function Header() {
+export default function Header() {
     const navigate = useNavigate();
-     const query = useQuery(
+    const query = useQuery(
         'whoAmI',
         async () => {
             const token = AuthStorageService.getToken();
@@ -93,14 +42,14 @@ function Header() {
                         </InputAdornment>)
                 }}/>
                 {
-                     query.data ?
+                    query.data ?
 
-                         <LoginLogoutWrapper>
-                             <div>Вы вошли как: {query.data.email}</div>
-                             <Button variant="outlined" size="small" onClick={async () => {
-                                 AuthStorageService.clear();
-                                 await query.refetch();
-                             }}>Выход</Button></LoginLogoutWrapper>
+                        <LoginLogoutWrapper>
+                            <div>Вы вошли как: {query.data.email}</div>
+                            <Button variant="outlined" size="small" onClick={async () => {
+                                AuthStorageService.clear();
+                                await query.refetch();
+                            }}>Выход</Button></LoginLogoutWrapper>
 
                         :
                         <Button variant="outlined" size="small" style={{margin: '1rem'}}
@@ -119,4 +68,50 @@ function Header() {
 }
 
 
-export default Header;
+
+
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  height: 6rem;
+  justify-content: space-around;
+  align-items: center;
+  background: #EEEEEE;
+  flex: 0 0 auto;
+  width: 100%;
+
+
+  @media (max-width: 1024px) {
+
+    height: 14rem;
+  }
+
+
+`
+
+const ChildHeaderWrapper = styled.div`
+  width: 111rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+
+  }
+`
+
+const TwoButtonsHeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    display: none;
+  }
+`
+
+const LoginLogoutWrapper = styled.div`
+  margin: 0.5rem`

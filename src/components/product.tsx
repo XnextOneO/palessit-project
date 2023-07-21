@@ -11,25 +11,57 @@ export interface Product {
     price: number;
     image: string;
 }
+function ProductDetailsPage() {
+    const { id } = useParams<{ id: string }>();
+    const [product, setProduct] = useState<Product | undefined>(undefined);
+
+    useEffect(() => {
+        if (id) {
+            fetch(`https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products/${id}`)
+                .then((response) => response.json())
+                .then((data) => setProduct(data))
+                .catch((error) => console.log(error));
+        }
+    }, [id]);
+
+    if (!product) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <ProductDetailsContainer>
+            <ProductDetailsCard>
+                <ProductDetailsName>{product.name}</ProductDetailsName>
+                <ImgAndOther>
+                    <ProductDetailsImage src={product.image} alt={product.name} />
+                    <ProductPriceButton>
+                        <ProductDetailsPrice>${product.price}</ProductDetailsPrice>
+
+                        <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon />}>
+                            Добавить в корзину
+                        </Button>
+                        <Button variant="outlined" size="small" endIcon={<BarChartIcon />}>
+                            Добавить к сравнению
+                        </Button>
+                    </ProductPriceButton>
+                </ImgAndOther>
+            </ProductDetailsCard>
+        </ProductDetailsContainer>
+    );
+}
+
+
 
 const ProductDetailsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 90.7rem;
-
-  
-
 `;
 
 const ProductDetailsCard = styled.div`
   display: flex;
   flex-direction: column;
-  
-  
-
-
- 
 `;
 
 const ProductPriceButton = styled.div`
@@ -81,43 +113,6 @@ const ProductDetailsPrice = styled.p`
   margin-bottom: 2rem;
 `;
 
-function ProductDetailsPage() {
-    const { id } = useParams<{ id: string }>();
-    const [product, setProduct] = useState<Product | undefined>(undefined);
 
-    useEffect(() => {
-        if (id) {
-            fetch(`https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products/${id}`)
-                .then((response) => response.json())
-                .then((data) => setProduct(data))
-                .catch((error) => console.log(error));
-        }
-    }, [id]);
-
-    if (!product) {
-        return <div>Loading...</div>;
-    }
-
-    return (
-        <ProductDetailsContainer>
-            <ProductDetailsCard>
-                <ProductDetailsName>{product.name}</ProductDetailsName>
-                <ImgAndOther>
-                    <ProductDetailsImage src={product.image} alt={product.name} />
-                    <ProductPriceButton>
-                        <ProductDetailsPrice>${product.price}</ProductDetailsPrice>
-
-                        <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon />}>
-                            Добавить в корзину
-                        </Button>
-                        <Button variant="outlined" size="small" endIcon={<BarChartIcon />}>
-                            Добавить к сравнению
-                        </Button>
-                    </ProductPriceButton>
-                </ImgAndOther>
-            </ProductDetailsCard>
-        </ProductDetailsContainer>
-    );
-}
 
 export default ProductDetailsPage;

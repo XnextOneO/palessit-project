@@ -2,6 +2,64 @@ import React, { useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import {useNavigate} from "react-router-dom";
 
+function getRandomBackgroundImage() {
+    const images = [
+        'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg',
+        'https://lifehacker.ru/wp-content/uploads/2013/05/50800-2560x1600.jpg'
+    ];
+
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+}
+
+export default function SpotlightComponent() {
+    const navigate = useNavigate();
+    const onMouseMove = useCallback((event: React.MouseEvent) => {
+        const spotlight = document.querySelector('.spotlight') as HTMLElement;
+        if (spotlight && spotlight.offsetWidth) {
+            const w = spotlight.offsetWidth;
+            const h = spotlight.offsetHeight;
+            const t = event.pageY - spotlight.offsetTop;
+            const l = event.pageX - spotlight.offsetLeft;
+            const dx = Math.abs(event.pageX - window.innerWidth / 2);
+            const dy = Math.abs(event.pageY - window.innerHeight / 2);
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            // Set the radius of the gradient based on the distance from the center
+            const radius =
+                500 -
+                (distance * 800) /
+                Math.sqrt(
+                    window.innerWidth * window.innerWidth +
+                    window.innerHeight * window.innerHeight,
+                );
+
+            // Update the spotlight style
+            spotlight.style.backgroundImage = `radial-gradient(circle at ${
+                (l / w) * 100
+            }% ${(t / h) * 100}%, transparent 80px, rgba(0, 0, 0, 0.99) ${radius}px)`;
+        }
+    }, []);
+
+    return (
+        <SpotlightWrap onMouseMove={onMouseMove}>
+            <ContentWrap>
+                <SpotlightLink>
+                    Page n<BlinkingO>o</BlinkingO>t found
+                </SpotlightLink>
+                <SpotlightDescripion>
+                    Hmm, the page you were looking for doesn’t seem to exist anymore
+                </SpotlightDescripion>
+                <ButtonErrorLink  onClick={() => {
+                    navigate('/');}}>Back to mainpage</ButtonErrorLink>
+            </ContentWrap>
+            <Spotlight className="spotlight" />
+        </SpotlightWrap>
+    );
+}
+
+
+
 const SpotlightWrap = styled.div`
   background: url(${getRandomBackgroundImage()}) no-repeat center center;
   background-size: cover;
@@ -94,61 +152,3 @@ const blink = keyframes`
 const BlinkingO = styled.span`
   animation: ${blink} 0.2s infinite;
 `;
-
-function getRandomBackgroundImage() {
-    const images = [
-        'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg',
-        'https://lifehacker.ru/wp-content/uploads/2013/05/50800-2560x1600.jpg'
-    ];
-
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-}
-
-function SpotlightComponent() {
-    const navigate = useNavigate();
-    const onMouseMove = useCallback((event: React.MouseEvent) => {
-        const spotlight = document.querySelector('.spotlight') as HTMLElement;
-        if (spotlight && spotlight.offsetWidth) {
-            const w = spotlight.offsetWidth;
-            const h = spotlight.offsetHeight;
-            const t = event.pageY - spotlight.offsetTop;
-            const l = event.pageX - spotlight.offsetLeft;
-            const dx = Math.abs(event.pageX - window.innerWidth / 2);
-            const dy = Math.abs(event.pageY - window.innerHeight / 2);
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            // Set the radius of the gradient based on the distance from the center
-            const radius =
-                500 -
-                (distance * 800) /
-                Math.sqrt(
-                    window.innerWidth * window.innerWidth +
-                    window.innerHeight * window.innerHeight,
-                );
-
-            // Update the spotlight style
-            spotlight.style.backgroundImage = `radial-gradient(circle at ${
-                (l / w) * 100
-            }% ${(t / h) * 100}%, transparent 80px, rgba(0, 0, 0, 0.99) ${radius}px)`;
-        }
-    }, []);
-
-    return (
-        <SpotlightWrap onMouseMove={onMouseMove}>
-            <ContentWrap>
-                <SpotlightLink>
-                    Page n<BlinkingO>o</BlinkingO>t found
-                </SpotlightLink>
-                <SpotlightDescripion>
-                    Hmm, the page you were looking for doesn’t seem to exist anymore
-                </SpotlightDescripion>
-                <ButtonErrorLink  onClick={() => {
-                    navigate('/');}}>Back to mainpage</ButtonErrorLink>
-            </ContentWrap>
-            <Spotlight className="spotlight" />
-        </SpotlightWrap>
-    );
-}
-
-export default SpotlightComponent;

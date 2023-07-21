@@ -7,36 +7,7 @@ import {AuthStorageService} from "../services/auth-storage.service.ts";
 import {ApiClient} from "../services/api-client.ts";
 
 
-const DeliverAddressWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 23.3rem;
-  gap: 0.625rem;
-`
-
-const UserDataWrapper = styled.div`
-  display: flex;
-  gap: 12.688rem;
-  
-  @media(max-width: 1024px) {
-    flex-direction: column;
-    gap: 2rem;
-    width: 10rem;
-  }
-`
-
-const HouseApartmentFloorWrapper = styled.div`
-  display: flex;
-  gap: 0.5rem; `
-
-const ContactUserData = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`
-
-
-function Userpage() {
+export default function Userpage() {
 
     const query = useQuery(
         'whoAmI',
@@ -98,4 +69,32 @@ function Userpage() {
     );
 }
 
-export default Userpage;
+
+
+const DeliverAddressWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 23.3rem;
+  gap: 0.625rem;
+`
+
+const UserDataWrapper = styled.div`
+  display: flex;
+  gap: 12.688rem;
+  
+  @media(max-width: 1024px) {
+    flex-direction: column;
+    gap: 2rem;
+    width: 10rem;
+  }
+`
+
+const HouseApartmentFloorWrapper = styled.div`
+  display: flex;
+  gap: 0.5rem; `
+
+const ContactUserData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`

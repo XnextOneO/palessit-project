@@ -9,34 +9,7 @@ import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
 import {useNavigate} from "react-router-dom";
 
-const MenuWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 10.3rem;
-  align-items: center;
-  margin-right: 8.8rem;
-  
-  
-  @media(max-width: 1024px) {
-    margin-right: 1rem;
-  }
-
-  @media(max-width: 478px) {
-
-    width: 6rem;
-  }
-`
-const CustomTypography = styled(Typography)`
-  display: inline;
-`;
-const CustomIconButton = styled(IconButton)`
-  display: flex;
-  flex-direction: column;
-`
-
-
-function Menu() {
+export default function Menu() {
     const navigate = useNavigate();
     return (
         <MenuWrapper>
@@ -82,4 +55,30 @@ function Menu() {
     );
 }
 
-export default Menu;
+
+
+const MenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 10.3rem;
+  align-items: center;
+  margin-right: 8.8rem;
+  
+  
+  @media(max-width: 1024px) {
+    margin-right: 1rem;
+  }
+
+  @media(max-width: 478px) {
+
+    width: 6rem;
+  }
+`
+const CustomTypography = styled(Typography)`
+  display: inline;
+`;
+const CustomIconButton = styled(IconButton)`
+  display: flex;
+  flex-direction: column;
+`
