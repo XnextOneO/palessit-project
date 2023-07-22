@@ -44,10 +44,10 @@ export default function Menu() {
                 <CustomTypography variant="body1" align="center">Личный <br/>кабинет</CustomTypography>
             </CustomIconButton>
             <CustomIconButton color="primary" onClick={() => {
-                navigate('/catalog');
+                navigate('/beerking');
             }}>
                 <FolderOutlinedIcon/>
-                <CustomTypography variant="body1" align="center">Категории</CustomTypography>
+                <CustomTypography variant="body1" align="center">BeerKing</CustomTypography>
             </CustomIconButton>
         </MenuWrapper>
 

@@ -7,6 +7,7 @@ import {Popular} from "./pages/popular.tsx";
 import Userpage from "./pages/userpage.tsx";
 import ProductDetailsPage from "./components/product.tsx";
 import styled from "styled-components";
+import BeerKing from "./pages/beer-king-game.tsx";
 
 
 export default function App() {
@@ -32,14 +33,17 @@ export default function App() {
                 <Route path="/user" element={<PageWrapper header footer menu>
                     <Userpage/>
                 </PageWrapper>}/>
+                <Route path="/beerking" element={<PageWrapper header footer menu>
+                    <BeerKing/>
+                </PageWrapper>}/>
             </Routes>
         </QueryClientProvider></MainWrapper>
     );
 }
 
 
-
 const queryClient = new QueryClient();
 const MainWrapper = styled.div`
   height: 100vh;
-  margin:0px auto!important;padding:0px!important;`
+  margin: 0px auto !important;
+  padding: 0px !important;`

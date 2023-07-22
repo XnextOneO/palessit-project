@@ -1,6 +1,6 @@
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
-import ProductsPage from "../components/card.tsx";
+import ProductsPage from "../pages/products-page.tsx"
 
 
 export function Popular() {
