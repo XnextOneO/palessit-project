@@ -56,7 +56,6 @@ export default function Menu() {
 }
 
 
-
 const MenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -64,13 +63,13 @@ const MenuWrapper = styled.div`
   width: 10.3rem;
   align-items: center;
   margin-right: 8.8rem;
-  
-  
-  @media(max-width: 1024px) {
+
+
+  @media (max-width: 1024px) {
     margin-right: 1rem;
   }
 
-  @media(max-width: 478px) {
+  @media (max-width: 478px) {
 
     width: 6rem;
   }

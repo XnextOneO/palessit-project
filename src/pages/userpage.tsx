@@ -70,7 +70,6 @@ export default function Userpage() {
 }
 
 
-
 const DeliverAddressWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -81,8 +80,8 @@ const DeliverAddressWrapper = styled.div`
 const UserDataWrapper = styled.div`
   display: flex;
   gap: 12.688rem;
-  
-  @media(max-width: 1024px) {
+
+  @media (max-width: 1024px) {
     flex-direction: column;
     gap: 2rem;
     width: 10rem;

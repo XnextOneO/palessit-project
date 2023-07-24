@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export interface Product {
     id: number;
@@ -15,7 +15,7 @@ export default function ProductCardComponent({
 }): JSX.Element {
     return (
         <ProductCard to={`/product/${product.id}`}>
-            <ProductImage src={product.image} alt={product.name} />
+            <ProductImage src={product.image} alt={product.name}/>
             <ProductInfo>
                 <ProductName>{product.name}</ProductName>
                 <ProductPrice>${product.price}</ProductPrice>

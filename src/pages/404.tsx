@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, {useCallback} from 'react';
+import styled, {keyframes} from 'styled-components';
 import {useNavigate} from "react-router-dom";
 
 function getRandomBackgroundImage() {
@@ -50,14 +50,14 @@ export default function SpotlightComponent() {
                 <SpotlightDescripion>
                     Hmm, the page you were looking for doesn’t seem to exist anymore
                 </SpotlightDescripion>
-                <ButtonErrorLink  onClick={() => {
-                    navigate('/');}}>Back to mainpage</ButtonErrorLink>
+                <ButtonErrorLink onClick={() => {
+                    navigate('/');
+                }}>Back to mainpage</ButtonErrorLink>
             </ContentWrap>
-            <Spotlight className="spotlight" />
+            <Spotlight className="spotlight"/>
         </SpotlightWrap>
     );
 }
-
 
 
 const SpotlightWrap = styled.div`
@@ -73,7 +73,7 @@ const SpotlightLink = styled.span`
 
   align-items: center;
   text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke,
-    0 0 40px whitesmoke;
+  0 0 40px whitesmoke;
   text-decoration: none;
   font-size: 3em;
 

@@ -40,13 +40,12 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-   const mutationLogin = useMutation((data: FormData) => ApiClient.login(data.email, data.password), {
+    const mutationLogin = useMutation((data: FormData) => ApiClient.login(data.email, data.password), {
         onSuccess: (data) => {
             AuthStorageService.setToken(data.token);
             navigate('/');
         }
     });
-
 
 
     const onSubmit = async (data: FormData) => {

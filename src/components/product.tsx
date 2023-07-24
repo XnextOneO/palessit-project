@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
@@ -11,8 +11,9 @@ export interface Product {
     price: number;
     image: string;
 }
+
 function ProductDetailsPage() {
-    const { id } = useParams<{ id: string }>();
+    const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | undefined>(undefined);
 
     useEffect(() => {
@@ -33,14 +34,14 @@ function ProductDetailsPage() {
             <ProductDetailsCard>
                 <ProductDetailsName>{product.name}</ProductDetailsName>
                 <ImgAndOther>
-                    <ProductDetailsImage src={product.image} alt={product.name} />
+                    <ProductDetailsImage src={product.image} alt={product.name}/>
                     <ProductPriceButton>
                         <ProductDetailsPrice>${product.price}</ProductDetailsPrice>
 
-                        <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon />}>
+                        <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon/>}>
                             Добавить в корзину
                         </Button>
-                        <Button variant="outlined" size="small" endIcon={<BarChartIcon />}>
+                        <Button variant="outlined" size="small" endIcon={<BarChartIcon/>}>
                             Добавить к сравнению
                         </Button>
                     </ProductPriceButton>
@@ -49,7 +50,6 @@ function ProductDetailsPage() {
         </ProductDetailsContainer>
     );
 }
-
 
 
 const ProductDetailsContainer = styled.div`
@@ -76,7 +76,7 @@ const ImgAndOther = styled.div`
   align-items: flex-start;
   gap: 6rem;
 
-  @media(max-width: 1024px){
+  @media (max-width: 1024px) {
     flex-direction: column;
     gap: 1rem;
   }
@@ -84,13 +84,13 @@ const ImgAndOther = styled.div`
 
 const ProductDetailsImage = styled.img`
   object-fit: cover;
-  
-  
-  @media(max-width: 808px){
+
+
+  @media (max-width: 808px) {
     width: 20rem;
   }
 
-  @media(max-width: 402px){
+  @media (max-width: 402px) {
     width: 10rem;
   }
 `;
@@ -99,11 +99,11 @@ const ProductDetailsName = styled.h2`
   margin-top: 0;
   font-size: 4rem;
 
-  @media(max-width: 808px){
+  @media (max-width: 808px) {
     font-size: 2rem;
   }
 
-  @media(max-width: 402px){
+  @media (max-width: 402px) {
     font-size: 1rem;
   }
 `;
@@ -112,7 +112,6 @@ const ProductDetailsPrice = styled.p`
   font-size: 2rem;
   margin-bottom: 2rem;
 `;
-
 
 
 export default ProductDetailsPage;
