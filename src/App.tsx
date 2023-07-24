@@ -8,6 +8,7 @@ import Userpage from "./pages/userpage.tsx";
 import ProductDetailsPage from "./components/product.tsx";
 import styled from "styled-components";
 import BeerKing from "./pages/beer-king-game.tsx";
+import CalcPc from "./pages/calc-pc.tsx";
 
 
 export default function App() {
@@ -35,6 +36,12 @@ export default function App() {
                 </PageWrapper>}/>
                 <Route path="/beerking" element={<PageWrapper header footer menu>
                     <BeerKing/>
+                </PageWrapper>}/>
+                <Route path="/beerking" element={<PageWrapper header footer menu>
+                    <BeerKing/>
+                </PageWrapper>}/>
+                <Route path="/calcPC" element={<PageWrapper header footer menu>
+                    <CalcPc/>
                 </PageWrapper>}/>
             </Routes>
         </QueryClientProvider></MainWrapper>
