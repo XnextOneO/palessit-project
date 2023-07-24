@@ -70,7 +70,7 @@ export default function Header() {
                     <Logo />
                 </a>
                 <TextField
-                    sx={{ width: "30rem" }}
+                    sx={{ width: "15rem" }}
                     id="filled-basic"
                     label="Например: “Процессор Intel”"
                     variant="filled"
