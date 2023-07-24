@@ -79,16 +79,16 @@ const ProductsContainer = styled.div`
     width: 82rem;
   }
 
-  @media (max-width: 1301px) {
+  @media (max-width: 1379px) {
     width: 60rem;
   }
 
-  @media (max-width: 817px) {
-    width: 30rem;
+  @media (max-width: 1101px) {
+    width: 40rem;
   }
 
-  @media (max-width: 478px) {
-    width: 13rem;
+  @media (max-width: 705px) {
+    width: 20rem;
   }
 `;
 
