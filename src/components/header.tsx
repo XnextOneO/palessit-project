@@ -29,8 +29,7 @@ export default function Header() {
 
     const [isListening, setIsListening] = useState(false);
     const [voiceInput, setVoiceInput] = useState("");
-    const recognitionRef = useRef(null);
-
+    const recognitionRef = useRef<SpeechRecognition | null>(null);
     const handleRecognitionStart = () => {
         setIsListening(true);
     };
@@ -39,7 +38,7 @@ export default function Header() {
         setIsListening(false);
     };
 
-    const handleRecognitionResult = (event) => {
+    const handleRecognitionResult = (event:any) => {
         const result = event.results[event.results.length - 1][0].transcript;
         setVoiceInput(result);
     };
@@ -56,9 +55,9 @@ export default function Header() {
         }
 
         if (isListening) {
-            recognitionRef.current.stop();
+            recognitionRef.current?.stop();
         } else {
-            recognitionRef.current.start();
+            recognitionRef.current?.start();
         }
     };
 
