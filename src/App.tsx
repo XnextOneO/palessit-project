@@ -5,7 +5,7 @@ import Login from "./pages/login.tsx";
 import SpotlightComponent from "./pages/404.tsx";
 import {Popular} from "./pages/popular.tsx";
 import Userpage from "./pages/userpage.tsx";
-import ProductDetailsPage from "./components/product.tsx";
+import ProductDetailsPage from "./pages/product.tsx";
 import styled from "styled-components";
 import BeerKing from "./pages/beer-king-game.tsx";
 import CalcPc from "./pages/calc-pc.tsx";
