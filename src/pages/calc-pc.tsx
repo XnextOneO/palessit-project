@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Slider from '@mui/material/Slider';
+import styled from "styled-components";
 
 interface Product {
     id: string;
@@ -33,12 +34,14 @@ const CalcPc = () => {
     }, []);
 
     const handleColorSliderChange = (event: Event, newValue: number | number[]) => {
+        console.log(event);
         if (typeof newValue === 'number') {
             setSelectedColorIndex(newValue);
         }
     };
 
     const handleGenderSliderChange = (event: Event, newValue: number | number[]) => {
+        console.log(event);
         if (typeof newValue === 'number') {
             setSelectedGenderIndex(newValue);
         }
@@ -67,7 +70,7 @@ const CalcPc = () => {
     );
 
     return (
-        <div>
+        <CalcPcWrapper>
             Выбор товара по цвету
             <div>
                 <Slider
@@ -107,8 +110,17 @@ const CalcPc = () => {
                     <p>Не найдено</p>
                 )}
             </div>
-        </div>
+        </CalcPcWrapper>
     );
 };
 
 export default CalcPc;
+
+
+const CalcPcWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 20rem;
+`
