@@ -38,7 +38,7 @@ const CalcPc = () => {
     };
 
     // Только те цвета, которые были в исходном коде
-    const availableColors = ['purple', 'turquoise', 'teal', 'salmon', 'tan'];
+    const availableColors = ['grey', 'turquoise', 'teal', 'salmon', 'tan'];
     const marks = availableColors.map((color, index) => ({ value: index, label: color }));
 
     const selectedColor = selectedColorIndex !== null ? availableColors[selectedColorIndex] : null;
