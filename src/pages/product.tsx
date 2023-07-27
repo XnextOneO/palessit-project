@@ -10,6 +10,7 @@ export interface Product {
     name: string;
     price: number;
     image: string;
+    description: string;
 }
 
 function ProductDetailsPage() {
@@ -35,9 +36,9 @@ function ProductDetailsPage() {
                 <ProductDetailsName>{product.name}</ProductDetailsName>
                 <ImgAndOther>
                     <ProductDetailsImage src={product.image} alt={product.name}/>
+
                     <ProductPriceButton>
                         <ProductDetailsPrice>${product.price}</ProductDetailsPrice>
-
                         <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon/>}>
                             Добавить в корзину
                         </Button>
@@ -46,10 +47,15 @@ function ProductDetailsPage() {
                         </Button>
                     </ProductPriceButton>
                 </ImgAndOther>
+                <Description>{product.description}</Description>
             </ProductDetailsCard>
         </ProductDetailsContainer>
     );
 }
+
+const Description = styled.p`
+font-size: 20px;
+`
 
 
 const ProductDetailsContainer = styled.div`
