@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Slider from '@mui/material/Slider';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface Product {
     id: string;
@@ -15,11 +15,11 @@ interface Product {
 const PRODUCTS_URL = 'https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products';
 
 const ProductCard = ({ product }: { product: Product }) => (
-    <div>
+    <CalcCardWrapper>
         <img src={product.image} alt={product.name} />
         <h3>{product.name}</h3>
         <p>{product.price}</p>
-    </div>
+    </CalcCardWrapper>
 );
 
 const CalcPc = () => {
@@ -101,26 +101,52 @@ const CalcPc = () => {
                     />
                 </div>
             </div>
-            <div>
+            <ProductList>
                 {filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
                         <ProductCard key={product.id} product={product} />
                     ))
                 ) : (
-                    <p>Не найдено</p>
+                    <NotFoundMessage>Не найдено</NotFoundMessage>
                 )}
-            </div>
+            </ProductList>
         </CalcPcWrapper>
     );
 };
 
 export default CalcPc;
 
-
 const CalcPcWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: flex-start;
   gap: 20px;
-  width: 20rem;
-`
+  width: 30rem;
+`;
+
+const ProductList = styled.div`
+  display: flex;
+  min-width: 600px;
+  flex-direction: column;
+  
+`;
+
+const NotFoundMessage = styled.p`
+  text-align: center;
+  font-size: 18px;
+  color: red;
+`;
+
+const CalcCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  img {
+    width: 200px;
+    height: 150px;
+  }
+  h3,
+  p {
+    width: 200px;
+  }
+`;
