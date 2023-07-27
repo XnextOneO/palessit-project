@@ -20,7 +20,7 @@ export default function Menu() {
                 <CustomTypography variant="body1" align="center">Главная</CustomTypography>
             </CustomIconButton>
             <CustomIconButton color="primary" onClick={() => {
-                navigate('/none');
+                navigate('/promotion');
             }}>
                 <ShoppingCartOutlinedIcon/>
                 <CustomTypography variant="body1" align="center">Акции</CustomTypography>

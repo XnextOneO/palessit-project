@@ -9,6 +9,7 @@ import ProductDetailsPage from "./pages/product.tsx";
 import styled from "styled-components";
 import BeerKing from "./pages/beer-king-game.tsx";
 import CalcPc from "./pages/calc-pc.tsx";
+import PromotionPage from "./pages/promotion-page.tsx";
 
 
 export default function App() {
@@ -42,6 +43,9 @@ export default function App() {
                 </PageWrapper>}/>
                 <Route path="/calcPC" element={<PageWrapper header footer menu>
                     <CalcPc/>
+                </PageWrapper>}/>
+                <Route path="/promotion" element={<PageWrapper header footer menu>
+                    <PromotionPage/>
                 </PageWrapper>}/>
             </Routes>
         </QueryClientProvider></MainWrapper>

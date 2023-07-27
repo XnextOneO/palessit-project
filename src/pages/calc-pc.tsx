@@ -51,13 +51,7 @@ const CalcPc = () => {
     const availableColors = ['grey', 'turquoise', 'teal', 'salmon', 'tan'];
     const colorMarks = availableColors.map((color, index) => ({ value: index, label: color }));
 
-    const availableGenders = [
-        'Cis male',
-        'T* woman',
-        'Cis man',
-        'T* man',
-        'FTM',
-    ];
+    const availableGenders = ['Cis male', 'T* woman', 'Cis man', 'T* man', 'FTM'];
     const genderMarks = availableGenders.map((gender, index) => ({ value: index, label: gender }));
 
     const selectedColor = selectedColorIndex !== null ? availableColors[selectedColorIndex] : null;
@@ -122,13 +116,21 @@ const CalcPcWrapper = styled.div`
   justify-content: flex-start;
   gap: 20px;
   width: 30rem;
+
+  @media (max-width: 677px) {
+    width: 15rem;
+  }
+
+  @media (max-width: 370px) {
+    width: 8rem;
+  }
 `;
 
 const ProductList = styled.div`
   display: flex;
   min-width: 600px;
   flex-direction: column;
-  
+
 `;
 
 const NotFoundMessage = styled.p`
@@ -148,5 +150,27 @@ const CalcCardWrapper = styled.div`
   h3,
   p {
     width: 200px;
+  }
+
+  @media (max-width: 677px) {
+    img {
+      width: 100px;
+      height: 75px;
+    }
+    h3,
+    p {
+      width: 100px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    img {
+      width: 50px;
+      height: 35px;
+    }
+    h3,
+    p {
+      width: 50px;
+    }
   }
 `;
