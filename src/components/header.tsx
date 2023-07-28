@@ -1,17 +1,17 @@
-import { useState, useRef } from "react";
+import {useState, useRef} from "react";
 import styled from "styled-components";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { InputAdornment } from "@mui/material";
+import {InputAdornment} from "@mui/material";
 import MicIcon from "@mui/icons-material/Mic";
 import SearchIcon from "@mui/icons-material/Search";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
-import { ApiClient } from "../services/api-client.ts";
-import { AuthStorageService } from "../services/auth-storage.service.ts";
-import { useNavigate } from "react-router-dom";
-import { Logo } from "./logo.tsx";
-import { useQuery } from "react-query";
+import {ApiClient} from "../services/api-client.ts";
+import {AuthStorageService} from "../services/auth-storage.service.ts";
+import {useNavigate} from "react-router-dom";
+import {Logo} from "./logo.tsx";
+import {useQuery} from "react-query";
 
 export default function Header() {
     const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function Header() {
         setIsListening(false);
     };
 
-    const handleRecognitionResult = (event:any) => {
+    const handleRecognitionResult = (event: any) => {
         const result = event.results[event.results.length - 1][0].transcript;
         setVoiceInput(result);
     };
@@ -67,10 +67,10 @@ export default function Header() {
         <HeaderWrapper>
             <ChildHeaderWrapper>
                 <a href="/">
-                    <Logo />
+                    <Logo/>
                 </a>
                 <TextField
-                    sx={{ width: "15rem" }}
+                    sx={{width: "15rem"}}
                     id="filled-basic"
                     label="Например: “Процессор Intel”"
                     variant="filled"
@@ -80,12 +80,12 @@ export default function Header() {
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <SearchIcon />
+                                <SearchIcon/>
                             </InputAdornment>
                         ),
                         endAdornment: (
                             <InputAdornment position="end">
-                                <MicIcon onClick={toggleListening} color={isListening ? "secondary" : "inherit"} />
+                                <MicIcon onClick={toggleListening} color={isListening ? "secondary" : "inherit"}/>
                             </InputAdornment>
                         ),
                     }}
@@ -108,7 +108,7 @@ export default function Header() {
                     <Button
                         variant="outlined"
                         size="small"
-                        style={{ margin: "1rem" }}
+                        style={{margin: "1rem"}}
                         onClick={() => {
                             navigate("/login");
                         }}
@@ -117,12 +117,12 @@ export default function Header() {
                     </Button>
                 )}
                 <TwoButtonsHeaderWrapper>
-                    <Button variant="outlined" size="small" endIcon={<BarChartIcon />} onClick={() => {
+                    <Button variant="outlined" size="small" endIcon={<BarChartIcon/>} onClick={() => {
                         navigate("/none");
                     }}>
                         Сравнение товаров
                     </Button>
-                    <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon />} onClick={() => {
+                    <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon/>} onClick={() => {
                         navigate("/none");
                     }}>
                         Корзина
