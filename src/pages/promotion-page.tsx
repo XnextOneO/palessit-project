@@ -57,7 +57,7 @@ export default function PromotionPage() {
     };
 
     return (
-        <div>
+        <PromotionPageWrapper>
             <SortButton onClick={handleSortClick}>
                 Sort by Price ({sortOrder === "asc" ? "Low to High" : "High to Low"})
             </SortButton>
@@ -72,17 +72,19 @@ export default function PromotionPage() {
                     ))}
                 {isLoading && <LoadingIndicator>Loading...</LoadingIndicator>}
             </ProductsContainer>
-        </div>
+        </PromotionPageWrapper>
     );
 }
 
+const PromotionPageWrapper = styled.div`
+
+`
+
 const ProductsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  
-  gap: 1rem;
+  flex-direction: column;
   width: 16rem;
-
+  gap: 1rem;
 `;
 
 const ProductCardWrapper = styled.div`
