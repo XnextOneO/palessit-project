@@ -1,5 +1,5 @@
-import {useState, useRef} from "react";
-import ProductCardComponent, {Product} from "../components/card.tsx";
+import { useEffect, useRef, useState } from "react";
+import ProductCardComponent, { Product } from "../components/card.tsx";
 import styled from "styled-components";
 
 export default function PromotionPage() {
@@ -9,20 +9,23 @@ export default function PromotionPage() {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
 
-    const fetchProducts = (page: number, filterByPrice = false) => {
-        setIsLoading(true);
-        const url = `https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products?page=${page}&limit=8${
-            filterByPrice ? "&price_lte=400" : ""
-        }`;
+    useEffect(() => {
+        fetchProducts(pageRef.current);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-        fetch(url)
+    const fetchProducts = (page: number) => {
+        setIsLoading(true);
+        fetch(
+            `https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products?page=${page}&limit=8`
+        )
             .then((response) => response.json())
             .then((data: Product[]) => {
                 const sortedData =
                     sortOrder === "asc"
-                        ? data.sort((a, b) => a.name.localeCompare(b.name)) // Сортировка по алфавиту
-                        : data.sort((a, b) => b.name.localeCompare(a.name)); // Сортировка по алфавиту в обратном порядке
-                setProducts((prevProducts) => (page === 1 ? sortedData : [...prevProducts, ...sortedData]));
+                        ? data.sort((a, b) => a.price - b.price)
+                        : data.sort((a, b) => b.price - a.price);
+                setProducts((prevProducts) => [...prevProducts, ...sortedData]);
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -31,57 +34,57 @@ export default function PromotionPage() {
             });
     };
 
+    const handleScroll = () => {
+        if (
+            containerRef.current &&
+            containerRef.current.getBoundingClientRect().bottom <= window.innerHeight
+        ) {
+            pageRef.current++;
+            fetchProducts(pageRef.current);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handleSortClick = () => {
         setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+        setProducts([]); // Очищаем список товаров, чтобы обновить его заново с новым порядком сортировки.
         pageRef.current = 1; // Сбрасываем номер страницы на первую.
-        fetchProducts(1);
-    };
-
-    const handleFilterClick = () => {
-        setProducts([]);
-        pageRef.current = 1;
-        fetchProducts(1, true); // Выполняем запрос с учетом фильтрации по цене
+        fetchProducts(1); // Загружаем товары с первой страницы, они уже будут отсортированы в соответствии с sortOrder.
     };
 
     return (
         <PromotionPageWrapper>
-            <SortButtonsWrapper><SortButton onClick={handleSortClick}>
-                Sort by Name ({sortOrder === "asc" ? "A to Z" : "Z to A"})
+            <SortButton onClick={handleSortClick}>
+                Sort by Price ({sortOrder === "asc" ? "Low to High" : "High to Low"})
             </SortButton>
-                <FilterButton onClick={handleFilterClick}>Filter by Price
-                    (&lt; $400)</FilterButton></SortButtonsWrapper>
             <ProductsContainer ref={containerRef}>
-                {products.map((product) => (
-                    <ProductCardWrapper key={product.id}>
-                        <ProductCardComponent product={product}/>
-                        {parseFloat(String(product.price)) < 400 && <DiscountTag>скидка</DiscountTag>}
-                    </ProductCardWrapper>
-                ))}
+                {products
+                    .filter((product) => parseFloat(String(product.price)) < 400) // Filter products with price less than 400
+                    .map((product) => (
+                        <ProductCardWrapper key={product.id}>
+                            <ProductCardComponent product={product} />
+                            {parseFloat(String(product.price)) < 400 && <DiscountTag>скидка</DiscountTag>}
+                        </ProductCardWrapper>
+                    ))}
                 {isLoading && <LoadingIndicator>Loading...</LoadingIndicator>}
             </ProductsContainer>
         </PromotionPageWrapper>
     );
 }
 
-const SortButtonsWrapper = styled.div`
-  display: flex;
-  gap: 6.7rem;
-`
-
 const PromotionPageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  
-`;
+
+`
 
 const ProductsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 800px;
+  flex-direction: column;
+  width: 16rem;
+  gap: 1rem;
 `;
 
 const ProductCardWrapper = styled.div`
@@ -107,17 +110,6 @@ const LoadingIndicator = styled.div`
 `;
 
 const SortButton = styled.button`
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #f0f0f0;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-`;
-
-const FilterButton = styled.button`
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   background-color: #f0f0f0;
