@@ -117,10 +117,14 @@ export default function Header() {
                     </Button>
                 )}
                 <TwoButtonsHeaderWrapper>
-                    <Button variant="outlined" size="small" endIcon={<BarChartIcon />}>
+                    <Button variant="outlined" size="small" endIcon={<BarChartIcon />} onClick={() => {
+                        navigate("/none");
+                    }}>
                         Сравнение товаров
                     </Button>
-                    <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon />}>
+                    <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon />} onClick={() => {
+                        navigate("/none");
+                    }}>
                         Корзина
                     </Button>
                 </TwoButtonsHeaderWrapper>

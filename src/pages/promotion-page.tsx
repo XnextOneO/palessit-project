@@ -79,9 +79,9 @@ export default function PromotionPage() {
 const ProductsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  
   gap: 1rem;
-  width: 60rem;
+  width: 16rem;
 
 `;
 
@@ -97,7 +97,6 @@ const DiscountTag = styled.span`
   color: white;
   padding: 0.2rem 0.5rem;
   font-size: 12px;
-  
 `;
 
 const LoadingIndicator = styled.div`
@@ -117,5 +116,4 @@ const SortButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  
 `;
