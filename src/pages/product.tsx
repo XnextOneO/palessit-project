@@ -82,7 +82,7 @@ const ImgAndOther = styled.div`
   align-items: flex-start;
   gap: 6rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1171px) {
     flex-direction: column;
     gap: 1rem;
   }

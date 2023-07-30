@@ -12,6 +12,7 @@ import {ApiClient} from "../services/api-client.ts";
 import {AuthStorageService} from "../services/auth-storage.service.ts";
 import {useNavigate} from 'react-router-dom';
 import {useMutation} from "react-query";
+import {LoginSvg} from "../components/login-svg.tsx";
 
 
 const MIN_PASSWORD_LENGTH = 6;
@@ -66,6 +67,7 @@ export default function Login() {
 
     return (
         <PageWrapper>
+            <LoginSvg/>
             <SignUpWrapper>
                 <Avatar>
                     <LockOutlinedIcon/>

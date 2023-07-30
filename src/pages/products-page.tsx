@@ -109,4 +109,8 @@ const SortButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
+  
+  @media(max-width: 348px) {
+    font-size: 10px;
+  }
 `;

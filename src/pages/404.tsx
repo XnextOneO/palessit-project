@@ -72,18 +72,36 @@ const SpotlightLink = styled.span`
   display: flex;
 
   align-items: center;
-  text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke, 0 0 30px whitesmoke,
-  0 0 40px whitesmoke;
+  text-shadow:
+          0 0 10px whitesmoke,
+          0 0 20px whitesmoke,
+          0 0 30px whitesmoke,
+          0 0 40px whitesmoke;
   text-decoration: none;
   font-size: 3em;
 
   &:hover {
     color: #fff;
   }
+
+  @media (max-width: 657px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 438px) {
+    font-size: 1rem;
+  }
 `;
 const SpotlightDescripion = styled.span`
   color: white;
   font-size: 0.7em;
+
+  @media (max-width: 657px) {
+    font-size: 0.5rem;
+  }
+  @media (max-width: 438px) {
+    font-size: 0.3rem;
+  }
 `;
 const Spotlight = styled.div`
   position: absolute;
@@ -93,6 +111,7 @@ const Spotlight = styled.div`
 `;
 
 const ButtonErrorLink = styled.button`
+
   background-color: white;
   border: none;
   color: black;
@@ -109,6 +128,16 @@ const ButtonErrorLink = styled.button`
 
   &:hover {
     opacity: 1;
+  }
+
+  @media (max-width: 657px) {
+    font-size: 0.5rem;
+    padding: 13px 22px;
+  }
+
+  @media (max-width: 438px) {
+    font-size: 0.3rem;
+    padding: 8px 12px;
   }
 `;
 
