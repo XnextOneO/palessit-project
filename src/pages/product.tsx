@@ -4,18 +4,14 @@ import {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import { useCart } from '../services/cart-context';
+import Product from '../services/product-interface.ts'
 
-export interface Product {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-    description: string;
-}
 
 function ProductDetailsPage() {
     const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | undefined>(undefined);
+    const { addToCart } = useCart(); // Получаем функцию addToCart из контекста корзины
 
     useEffect(() => {
         if (id) {
@@ -39,7 +35,12 @@ function ProductDetailsPage() {
 
                     <ProductPriceButton>
                         <ProductDetailsPrice>${product.price}</ProductDetailsPrice>
-                        <Button variant="outlined" size="small" endIcon={<LocalGroceryStoreOutlinedIcon/>}>
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            endIcon={<LocalGroceryStoreOutlinedIcon />}
+                            onClick={() => addToCart(product)}
+                        >
                             Добавить в корзину
                         </Button>
                         <Button variant="outlined" size="small" endIcon={<BarChartIcon/>}>

@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-
-export interface Product {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-}
+import Product from '../services/product-interface.tsx';
 
 export default function ProductCardComponent({
                                                  product,

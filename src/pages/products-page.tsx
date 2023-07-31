@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import ProductCardComponent, { Product } from "../components/card.tsx";
+import {useEffect, useRef, useState} from "react";
+import ProductCardComponent from "../components/card.tsx";
 import styled from "styled-components";
+import Product from "../services/product-interface.ts"
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -60,7 +61,7 @@ export default function ProductsPage() {
             </SortButton>
             <ProductsContainer ref={containerRef}>
                 {products.map((product) => (
-                    <ProductCardComponent key={product.id} product={product} />
+                    <ProductCardComponent key={product.id} product={product}/>
                 ))}
                 {isLoading && <LoadingIndicator>Loading...</LoadingIndicator>}
             </ProductsContainer>
@@ -109,8 +110,8 @@ const SortButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  
-  @media(max-width: 348px) {
+
+  @media (max-width: 348px) {
     font-size: 10px;
   }
 `;

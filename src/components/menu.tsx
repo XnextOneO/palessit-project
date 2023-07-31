@@ -32,7 +32,7 @@ export default function Menu() {
                 <CustomTypography variant="body1" align="center">Калькулятор <br/>ПК</CustomTypography>
             </CustomIconButton>
             <CustomIconButton color="primary" onClick={() => {
-                navigate('/none');
+                navigate('/cart-page');
             }}>
                 <CalculateOutlinedIcon/>
                 <CustomTypography variant="body1" align="center">Корзина</CustomTypography>
