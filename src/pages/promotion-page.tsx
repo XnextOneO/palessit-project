@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import ProductCardComponent, { Product } from "../components/card.tsx";
+import ProductCardComponent from "../components/card.tsx";
 import styled from "styled-components";
+import Product from "../services/product-interface.ts";
 
 export default function PromotionPage() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -21,10 +22,9 @@ export default function PromotionPage() {
         )
             .then((response) => response.json())
             .then((data: Product[]) => {
-                const sortedData =
-                    sortOrder === "asc"
-                        ? data.sort((a, b) => a.price - b.price)
-                        : data.sort((a, b) => b.price - a.price);
+                const sortedData = sortOrder === "asc"
+                    ? data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
+                    : data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
                 setProducts((prevProducts) => [...prevProducts, ...sortedData]);
                 setIsLoading(false);
             })
@@ -33,6 +33,7 @@ export default function PromotionPage() {
                 setIsLoading(false);
             });
     };
+
 
     const handleScroll = () => {
         if (

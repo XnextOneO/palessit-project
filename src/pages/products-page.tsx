@@ -22,7 +22,9 @@ export default function ProductsPage() {
         )
             .then((response) => response.json())
             .then((data: Product[]) => {
-                const sortedData = sortOrder === "asc" ? data.sort((a, b) => a.price - b.price) : data.sort((a, b) => b.price - a.price);
+                const sortedData = sortOrder === "asc"
+                    ? data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
+                    : data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
                 setProducts((prevProducts) => [...prevProducts, ...sortedData]);
                 setIsLoading(false);
             })
@@ -31,6 +33,8 @@ export default function ProductsPage() {
                 setIsLoading(false);
             });
     };
+
+
 
     const handleScroll = () => {
         if (

@@ -1,5 +1,5 @@
 export default interface Product {
-    price: number;
+    price: string;
     name: string;
     image: string;
     color: string;
