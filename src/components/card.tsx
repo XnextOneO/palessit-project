@@ -28,6 +28,9 @@ const ProductCard = styled(Link)`
   border-radius: 12px;
   width: 16rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     transform: scale(1.05);
@@ -36,8 +39,8 @@ const ProductCard = styled(Link)`
 `;
 
 const ProductImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
 `;

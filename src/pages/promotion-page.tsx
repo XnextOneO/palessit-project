@@ -18,7 +18,7 @@ export default function PromotionPage() {
     const fetchProducts = (page: number) => {
         setIsLoading(true);
         fetch(
-            `https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products?page=${page}&limit=8`
+            `https://64ad67d8b470006a5ec5e9b1.mockapi.io/api/products/products?page=${page}&limit=10`
         )
             .then((response) => response.json())
             .then((data: Product[]) => {
@@ -78,14 +78,18 @@ export default function PromotionPage() {
 }
 
 const PromotionPageWrapper = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  
+;
 `
 
 const ProductsContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 16rem;
-  gap: 1rem;
+  gap: 5rem;
+  flex-wrap: wrap;
+  width: 1000px;
+  overflow-y: hidden;
 `;
 
 const ProductCardWrapper = styled.div`

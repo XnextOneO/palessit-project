@@ -4,14 +4,14 @@ import {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
-import { useCart } from '../services/cart-context';
+import {useCart} from '../services/cart-context';
 import Product from '../services/product-interface.ts'
 
 
 function ProductDetailsPage() {
     const {id} = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | undefined>(undefined);
-    const { addToCart } = useCart(); // Получаем функцию addToCart из контекста корзины
+    const {addToCart} = useCart(); // Получаем функцию addToCart из контекста корзины
 
     useEffect(() => {
         if (id) {
@@ -38,7 +38,7 @@ function ProductDetailsPage() {
                         <Button
                             variant="outlined"
                             size="small"
-                            endIcon={<LocalGroceryStoreOutlinedIcon />}
+                            endIcon={<LocalGroceryStoreOutlinedIcon/>}
                             onClick={() => addToCart(product)}
                         >
                             Добавить в корзину
@@ -55,7 +55,7 @@ function ProductDetailsPage() {
 }
 
 const Description = styled.p`
-font-size: 20px;
+  font-size: 20px;
 `
 
 
