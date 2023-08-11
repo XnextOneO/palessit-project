@@ -12,6 +12,7 @@ import {AuthStorageService} from "../services/auth-storage.service.ts";
 import {useNavigate} from "react-router-dom";
 import {Logo} from "./logo.tsx";
 import {useQuery} from "react-query";
+import BurgerMenu from "./burger-menu.tsx";
 
 export default function Header() {
     const navigate = useNavigate();
@@ -65,6 +66,8 @@ export default function Header() {
 
     return (
         <HeaderWrapper>
+            <BurgerMenu/>
+
             <ChildHeaderWrapper>
                 <a href="/">
                     <Logo/>

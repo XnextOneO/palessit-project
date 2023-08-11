@@ -90,6 +90,18 @@ const ProductsContainer = styled.div`
   flex-wrap: wrap;
   width: 1000px;
   overflow-y: hidden;
+
+  @media (max-width: 1228px) {
+    gap: 1rem;
+  }
+
+  @media (max-width: 1100px) {
+    width: 600px;
+  }
+  
+  @media (max-width: 700px) {
+    width: 280px;
+  }
 `;
 
 const ProductCardWrapper = styled.div`
