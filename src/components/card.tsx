@@ -36,6 +36,11 @@ const ProductCard = styled(Link)`
     transform: scale(1.05);
     box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
   }
+  
+  @media(max-width: 600px) {
+    height: 15rem;
+    width: 10rem;
+  }
 `;
 
 const ProductImage = styled.img`
@@ -54,6 +59,11 @@ const ProductInfo = styled.div`
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0 0 12px 12px;
+
+  @media(max-width: 600px) {
+    
+    width: 8rem;
+  }
 `;
 
 const ProductName = styled.h3`
